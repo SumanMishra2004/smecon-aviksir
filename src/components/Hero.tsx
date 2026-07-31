@@ -219,13 +219,13 @@ export default function Hero({ data }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-195 sm:min-h-212.5 flex items-center justify-center overflow-hidden bg-navy"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy py-3 h-fit"
     >
       {/* Image Slider Background with Gradients */}
       <ImageSlider images={bgImages.length > 0 ? bgImages : DEFAULT_BACKGROUND_IMAGES} />
 
       <ParticleBackground />
-
+1``
       {/* Content */}
       <div className="relative z-20 px-4 sm:px-6 text-center max-w-5xl mx-auto py-20">
         {/* Eyebrow */}
