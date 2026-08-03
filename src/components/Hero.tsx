@@ -168,7 +168,7 @@ interface HeroProps {
 
 /* ── Hero Section ───────────────────────────────────────────────────── */
 export default function Hero({ data }: HeroProps) {
-  const defaultDate = new Date("2026-09-05T09:00:00+05:30");
+  const defaultDate = new Date("2026-09-12T09:00:00+05:30");
   const conferenceDate = data?.conferenceDate ? new Date(data.conferenceDate) : defaultDate;
   const countdown = useCountdown(conferenceDate);
 
@@ -194,7 +194,7 @@ export default function Hero({ data }: HeroProps) {
   const badges = data?.badges && data.badges.length > 0
     ? data.badges
     : [
-        { text: "5–6 September 2026", iconType: "calendar" },
+        { text: "12–13 September 2026", iconType: "calendar" },
         { text: "Fully Online", iconType: "online" },
       ];
 
