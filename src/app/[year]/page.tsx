@@ -74,7 +74,7 @@ export default async function YearPage({ params }: Props) {
         <Tracks data={tracksData} />
         <Fees data={feesData} />
         <Speakers data={speakersData} />
-        <Committee data={committeeData} />
+        {committeeData?.isVisible !== false && <Committee data={committeeData} />}
         <ImportantDates data={importantDatesData} />
         <Gallery data={galleryData} />
         <CallForPapers data={callForPapersData} />

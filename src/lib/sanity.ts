@@ -110,6 +110,7 @@ export interface CommitteeMember {
 
 export interface CommitteeData {
   year?: string;
+  isVisible?: boolean;
   heading?: string;
   conveners?: string[];
   patrons?: string[];

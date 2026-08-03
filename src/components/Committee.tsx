@@ -69,6 +69,10 @@ interface CommitteeProps {
 }
 
 export default function Committee({ data }: CommitteeProps) {
+  if (data?.isVisible === false) {
+    return null;
+  }
+
   const heading = data?.heading || "Organizing Committee";
   const [selectedDomain, setSelectedDomain] = useState<string>("All");
 

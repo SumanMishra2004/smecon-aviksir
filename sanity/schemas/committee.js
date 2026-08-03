@@ -6,6 +6,13 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({ name: 'year', title: 'Year Edition (e.g. 2026, 2027)', type: 'string', initialValue: '2026' }),
+    defineField({
+      name: 'isVisible',
+      title: 'Show Committee Section',
+      type: 'boolean',
+      initialValue: true,
+      description: 'Toggle ON to show the Organizing Committee section on the website, or OFF to hide it completely.',
+    }),
     defineField({ name: 'heading', title: 'Section Heading', type: 'string' }),
     defineField({
       name: 'conveners',
