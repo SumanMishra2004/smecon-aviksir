@@ -9,15 +9,56 @@ export default defineType({
     defineField({ name: 'heading', title: 'Section Heading', type: 'string' }),
     defineField({
       name: 'conveners',
-      title: 'Conveners',
+      title: 'Conveners (Legacy Simple List)',
       type: 'array',
       of: [{ type: 'string' }],
     }),
     defineField({
       name: 'patrons',
-      title: 'Patrons',
+      title: 'Patrons (Legacy Simple List)',
       type: 'array',
       of: [{ type: 'string' }],
     }),
+    defineField({
+      name: 'members',
+      title: 'Committee Member Cards',
+      description: 'Add members with name, profile image, LinkedIn profile URL, and domain specification (e.g. Technical, Publication, Publicity, Registration, Webmaster)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'committeeMember',
+          title: 'Committee Member Card',
+          fields: [
+            defineField({ name: 'name', title: 'Name', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({
+              name: 'domain',
+              title: 'Domain / Sub-Committee',
+              type: 'string',
+              description: 'e.g. Technical, Publication, Publicity, Registration, Webmaster, Convener, Patron',
+            }),
+            defineField({ name: 'role', title: 'Role / Designation (Optional)', type: 'string' }),
+            defineField({ name: 'affiliation', title: 'Affiliation (Optional)', type: 'string' }),
+            defineField({ name: 'image', title: 'Profile Image', type: 'image', options: { hotspot: true } }),
+            defineField({ name: 'linkedinUrl', title: 'LinkedIn Profile URL', type: 'url' }),
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              subtitle: 'domain',
+              media: 'image',
+            },
+            prepare({ title, subtitle, media }) {
+              return {
+                title: title || 'Unnamed Member',
+                subtitle: subtitle ? `Domain: ${subtitle}` : 'No domain specified',
+                media,
+              };
+            },
+          },
+        },
+      ],
+    }),
   ],
 });
+

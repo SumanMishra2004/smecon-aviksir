@@ -98,11 +98,22 @@ export interface SpeakersData {
   speakersList?: SpeakerItem[];
 }
 
+export interface CommitteeMember {
+  name: string;
+  domain?: string;
+  role?: string;
+  affiliation?: string;
+  image?: any;
+  linkedinUrl?: string;
+  initials?: string;
+}
+
 export interface CommitteeData {
   year?: string;
   heading?: string;
   conveners?: string[];
   patrons?: string[];
+  members?: CommitteeMember[];
 }
 
 export interface DateItem {
