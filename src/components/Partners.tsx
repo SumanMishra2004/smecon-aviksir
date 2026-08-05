@@ -24,7 +24,8 @@ const DEFAULT_GROUPS = [
 // ─── Single logo/name card ─────────────────────────────────────────────────────
 function PartnerCard({ partner, index }: { partner: PartnerItem; index: number }) {
   const logoUrl = urlFor(partner.logo);
-  const initials = partner.name
+  const displayName = partner.name?.trim() || "Partner";
+  const initials = displayName
     .split(" ")
     .map((w) => w[0])
     .join("")
@@ -45,7 +46,7 @@ function PartnerCard({ partner, index }: { partner: PartnerItem; index: number }
         {logoUrl ? (
           <Image
             src={logoUrl}
-            alt={partner.name}
+            alt={displayName}
             width={80}
             height={80}
             className="w-full h-full object-contain p-1"
@@ -57,7 +58,7 @@ function PartnerCard({ partner, index }: { partner: PartnerItem; index: number }
       </div>
 
       {/* Name */}
-      <p className="text-sm sm:text-base font-bold text-navy leading-snug">{partner.name}</p>
+      <p className="text-sm sm:text-base font-bold text-navy leading-snug">{displayName}</p>
 
       {/* Description */}
       {partner.description && (
@@ -133,7 +134,7 @@ export default function Partners({ data }: PartnersProps) {
               {/* Partner cards grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 {(group.partners ?? []).map((partner, pi) => (
-                  <PartnerCard key={partner.name + pi} partner={partner} index={pi} />
+                  <PartnerCard key={`${partner.name?.trim() || "partner"}-${pi}`} partner={partner} index={pi} />
                 ))}
               </div>
             </div>
