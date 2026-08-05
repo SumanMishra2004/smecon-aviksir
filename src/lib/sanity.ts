@@ -153,6 +153,25 @@ export interface CallForPapersData {
   templateUrl?: string;
 }
 
+export interface PartnerItem {
+  name: string;
+  logo?: any;
+  website?: string;
+  description?: string;
+}
+
+export interface PartnerGroup {
+  groupLabel: string;
+  partners?: PartnerItem[];
+}
+
+export interface PartnersData {
+  year?: string;
+  heading?: string;
+  subheading?: string;
+  partnerGroups?: PartnerGroup[];
+}
+
 /**
  * Fetch data from Sanity with safe fallback handling
  */
@@ -203,6 +222,10 @@ export async function getGalleryData(year: string = "2026"): Promise<GalleryData
 
 export async function getCallForPapersData(year: string = "2026"): Promise<CallForPapersData | null> {
   return fetchSanity<CallForPapersData>(`*[_type == "callForPapers" && (year == $year || !defined(year))][0]`, { year });
+}
+
+export async function getPartnersData(year: string = "2026"): Promise<PartnersData | null> {
+  return fetchSanity<PartnersData>(`*[_type == "partners" && (year == $year || !defined(year))][0]`, { year });
 }
 
 export async function getAvailableYears(): Promise<string[]> {

@@ -13,6 +13,7 @@ const DEFAULT_NAV_LINKS = [
   { label: "Committee", href: "#committee" },
   { label: "Dates", href: "#dates" },
   { label: "Submit", href: "#submit" },
+  { label: "Venue", href: "#venue" },
 ];
 
 interface NavbarProps {

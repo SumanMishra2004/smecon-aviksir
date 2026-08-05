@@ -7,6 +7,8 @@ import Committee from "@/components/Committee";
 import ImportantDates from "@/components/ImportantDates";
 import Gallery from "@/components/Gallery";
 import CallForPapers from "@/components/CallForPapers";
+import Venue from "@/components/Venue";
+import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 
 import {
@@ -19,6 +21,7 @@ import {
   getImportantDatesData,
   getGalleryData,
   getCallForPapersData,
+  getPartnersData,
   getAvailableYears,
 } from "@/lib/sanity";
 
@@ -37,6 +40,7 @@ export default async function Home() {
     importantDatesData,
     galleryData,
     callForPapersData,
+    partnersData,
     availableYears,
   ] = await Promise.all([
     getHeroData(activeYear),
@@ -47,6 +51,7 @@ export default async function Home() {
     getImportantDatesData(activeYear),
     getGalleryData(activeYear),
     getCallForPapersData(activeYear),
+    getPartnersData(activeYear),
     getAvailableYears(),
   ]);
 
@@ -62,6 +67,8 @@ export default async function Home() {
         <ImportantDates data={importantDatesData} />
         <Gallery data={galleryData} />
         <CallForPapers data={callForPapersData} />
+        <Venue />
+        <Partners data={partnersData} />
       </main>
       <Footer data={siteSettings} />
     </>
