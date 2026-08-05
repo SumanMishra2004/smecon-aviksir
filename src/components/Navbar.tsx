@@ -14,6 +14,7 @@ const DEFAULT_NAV_LINKS = [
   { label: "Dates", href: "#dates" },
   { label: "Submit", href: "#submit" },
   { label: "Venue", href: "#venue" },
+  { label: "Partners", href: "#partners" },
 ];
 
 interface NavbarProps {

@@ -81,7 +81,7 @@ interface PartnersProps {
 }
 
 export default function Partners({ data }: PartnersProps) {
-  const heading = data?.heading || "Partners & Sponsors";
+  const heading = data?.heading || "Partners";
   const subheading =
     data?.subheading ||
     "We are grateful to our partners and sponsors for their invaluable support of SMECON 2026.";
