@@ -99,7 +99,7 @@ export default function Venue() {
                   href="mailto:ikctrustofficial@gmail.com"
                   className="text-white font-semibold text-sm sm:text-base hover:text-gold transition-colors"
                 >
-                  ikctrustofficial@gmail.com
+                  official@smecon.in
                 </a>
               </div>
             </div>
