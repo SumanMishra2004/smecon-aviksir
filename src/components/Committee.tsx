@@ -133,34 +133,63 @@ export default function Committee({ data }: CommitteeProps) {
         {/* ── Patrons ── */}
         {sanityPatrons.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.55, delay: 0.05 }}
-            className="mb-10"
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="mb-14"
           >
-            <div className="flex items-center gap-3 mb-4 justify-center">
-              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-gold/50" />
-              <span className="text-xs font-bold uppercase tracking-widest text-gold-hover px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
-                Patrons
-              </span>
-              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-gold/50" />
+            {/* Section label */}
+            <div className="flex items-center gap-3 mb-6 justify-center">
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-gold/40" />
+              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-gold/20 to-amber-100 border border-gold/40 shadow-sm">
+                <span className="text-base leading-none">👑</span>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-amber-700">Patrons</span>
+              </div>
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-gold/40" />
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
+
+            {/* Cards */}
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
               {sanityPatrons.map((name, i) => (
                 <motion.div
                   key={name + i}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.07 }}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-gold/30 shadow-sm hover:shadow-md hover:border-gold/60 transition-all duration-300 group"
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(232,163,61,0.18), 0 0 24px rgba(232,163,61,0.12)" }}
+                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-white border border-gold/30 shadow-md hover:border-gold/60 transition-all duration-300 relative overflow-hidden w-52 sm:w-56"
                 >
-                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 border border-gold/40 flex items-center justify-center text-xs font-extrabold text-navy shrink-0">
-                    {getInitials(name)}
-                  </span>
-                  <span className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
+                  {/* Always-visible gold gradient accent top strip */}
+                  <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-amber-300 via-gold to-amber-400" />
+
+                  {/* Soft gold shimmer bg */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-amber-50/60 to-transparent pointer-events-none" />
+
+                  {/* Avatar */}
+                  <div className="relative mb-4 mt-2 z-10">
+                    <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-amber-300 via-gold to-amber-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                      <span className="text-2xl font-extrabold text-white tracking-wider drop-shadow">
+                        {getInitials(name)}
+                      </span>
+                    </div>
+                    {/* Gold decorative ring — always visible */}
+                    <div className="absolute inset-0 rounded-full border-2 border-gold/50 scale-110 pointer-events-none" />
+                    {/* Crown badge */}
+                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-amber-400 border-2 border-white flex items-center justify-center text-xs shadow-md z-20">
+                      👑
+                    </span>
+                  </div>
+
+                  {/* Name */}
+                  <h3 className="text-base font-bold text-navy mb-1 group-hover:text-amber-700 transition-colors z-10 relative">
                     {name}
+                  </h3>
+
+                  {/* Role badge */}
+                  <span className="inline-block px-3 py-1 text-xs rounded-full border bg-gold/15 text-amber-700 border-gold/40 font-bold z-10 relative">
+                    Patron
                   </span>
                 </motion.div>
               ))}
@@ -171,34 +200,63 @@ export default function Committee({ data }: CommitteeProps) {
         {/* ── Conveners ── */}
         {sanityConveners.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            className="mb-10"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-14"
           >
-            <div className="flex items-center gap-3 mb-4 justify-center">
-              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-teal/50" />
-              <span className="text-xs font-bold uppercase tracking-widest text-teal px-3 py-1 rounded-full bg-teal/10 border border-teal/30">
-                Conveners
-              </span>
-              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-teal/50" />
+            {/* Section label */}
+            <div className="flex items-center gap-3 mb-6 justify-center">
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-teal/40" />
+              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-teal/20 to-cyan-50 border border-teal/40 shadow-sm">
+                <span className="text-base leading-none">⭐</span>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-teal">Conveners</span>
+              </div>
+              <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-teal/40" />
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
+
+            {/* Cards */}
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
               {sanityConveners.map((name, i) => (
                 <motion.div
                   key={name + i}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.07 }}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-teal/30 shadow-sm hover:shadow-md hover:border-teal/60 transition-all duration-300 group"
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(20,184,166,0.15), 0 0 24px rgba(20,184,166,0.1)" }}
+                  className="group flex flex-col items-center text-center p-6 rounded-2xl bg-white border border-teal/30 shadow-md hover:border-teal/60 transition-all duration-300 relative overflow-hidden w-52 sm:w-56"
                 >
-                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-teal/30 to-teal/10 border border-teal/40 flex items-center justify-center text-xs font-extrabold text-navy shrink-0">
-                    {getInitials(name)}
-                  </span>
-                  <span className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
+                  {/* Always-visible teal gradient accent top strip */}
+                  <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-teal via-cyan-400 to-teal" />
+
+                  {/* Soft teal shimmer bg */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-cyan-50/60 to-transparent pointer-events-none" />
+
+                  {/* Avatar */}
+                  <div className="relative mb-4 mt-2 z-10">
+                    <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-teal via-cyan-500 to-navy flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                      <span className="text-2xl font-extrabold text-white tracking-wider drop-shadow">
+                        {getInitials(name)}
+                      </span>
+                    </div>
+                    {/* Teal decorative ring — always visible */}
+                    <div className="absolute inset-0 rounded-full border-2 border-teal/50 scale-110 pointer-events-none" />
+                    {/* Star badge */}
+                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-teal border-2 border-white flex items-center justify-center text-xs shadow-md z-20">
+                      ⭐
+                    </span>
+                  </div>
+
+                  {/* Name */}
+                  <h3 className="text-base font-bold text-navy mb-1 group-hover:text-teal transition-colors z-10 relative">
                     {name}
+                  </h3>
+
+                  {/* Role badge */}
+                  <span className="inline-block px-3 py-1 text-xs rounded-full border bg-teal/10 text-teal border-teal/40 font-bold z-10 relative">
+                    Convener
                   </span>
                 </motion.div>
               ))}
