@@ -44,7 +44,7 @@ interface TracksProps {
 
 export default function Tracks({ data }: TracksProps) {
   const heading = data?.heading || "Conference Tracks";
-  const subheading = data?.subheading || "8 Scopus-indexed publication tracks";
+  const subheading = data?.subheading || "6 Scopus-indexed publication tracks";
   const bannerText = data?.bannerText || "📚 Accepted & registered papers will be published as Scopus-indexed Book Chapters following the standard peer-review and editorial processes of the respective publishers.";
   const tracksList = data?.tracksList && data.tracksList.length > 0 ? data.tracksList : DEFAULT_TRACKS;
 
@@ -105,7 +105,7 @@ export default function Tracks({ data }: TracksProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 rounded-xl bg-gradient-to-r from-orange to-orange-light p-5 sm:p-6 border border-orange/30"
+          className="mt-10 rounded-xl bg-linear-to-r from-orange to-orange-light p-5 sm:p-6 border border-orange/30"
         >
           <p className="text-sm sm:text-base text-navy font-semibold text-center leading-relaxed">
             {bannerText}

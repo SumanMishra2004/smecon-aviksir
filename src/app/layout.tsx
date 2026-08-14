@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SMECON 2026 — International Conference on Smart Manufacturing, Sustainable Energy & Computational Intelligence",
   description:
-    "Two-day international online conference (5–6 September 2026) on Smart Manufacturing, Sustainable Energy & Computational Intelligence. Jointly organized by Dept. of Chemistry, Sovarani Memorial College Howrah, India & IKC Trust. 8 Scopus-indexed publication tracks.",
+    "Two-day international Hybrid conference (19 - 20 September 2026) on Smart Manufacturing, Sustainable Energy & Computational Intelligence. Jointly organized by Dept. of Chemistry, Sovarani Memorial College Howrah, India & IKC Trust. 6 Scopus-indexed publication tracks.",
   keywords: [
     "SMECON 2026",
     "international conference",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SMECON 2026 — Smart Manufacturing, Sustainable Energy & Computational Intelligence",
     description:
-      "Two-day international online conference. 8 Scopus-indexed publication tracks. 5–6 September 2026.",
+      "Two-day international Hybrid conference. 6 Scopus-indexed publication tracks. 19–20 September 2026.",
     type: "website",
   },
   icons: {

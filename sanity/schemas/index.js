@@ -7,6 +7,7 @@ import committee from "./committee";
 import importantDates from "./importantDates";
 import gallery from "./gallery";
 import callForPapers from "./callForPapers";
+import partners from "./partners";
 
 export const schemaTypes = [
   siteSettings,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   importantDates,
   gallery,
   callForPapers,
+  partners,
 ];
