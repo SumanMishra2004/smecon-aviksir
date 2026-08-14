@@ -80,15 +80,12 @@ export default function Committee({ data }: CommitteeProps) {
     if (data?.members && data.members.length > 0) {
       return data.members;
     }
-    // Legacy patrons fallback if needed
-    const legacyPatrons: CommitteeMember[] = (data?.patrons || []).map((name) => ({ name, domain: "Patron", role: "Patron" }));
-
-    if (legacyPatrons.length > 0) {
-      const restDefaults = DEFAULT_MEMBERS.filter((m) => m.domain !== "Patron");
-      return [...legacyPatrons, ...restDefaults];
-    }
     return DEFAULT_MEMBERS;
   }, [data]);
+
+  // Patrons and conveners from Sanity (simple string lists)
+  const sanityPatrons: string[] = data?.patrons && data.patrons.length > 0 ? data.patrons : [];
+  const sanityConveners: string[] = data?.conveners && data.conveners.length > 0 ? data.conveners : [];
 
   // Extract unique domains in priority order
   const availableDomains = useMemo(() => {
@@ -132,6 +129,93 @@ export default function Committee({ data }: CommitteeProps) {
             Meet our dedicated team members driving leadership, technical excellence, publicity, and organization across all domains.
           </p>
         </motion.div>
+
+        {/* ── Patrons ── */}
+        {sanityPatrons.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, delay: 0.05 }}
+            className="mb-10"
+          >
+            <div className="flex items-center gap-3 mb-4 justify-center">
+              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-gold/50" />
+              <span className="text-xs font-bold uppercase tracking-widest text-gold-hover px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
+                Patrons
+              </span>
+              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-gold/50" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {sanityPatrons.map((name, i) => (
+                <motion.div
+                  key={name + i}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.07 }}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-gold/30 shadow-sm hover:shadow-md hover:border-gold/60 transition-all duration-300 group"
+                >
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 border border-gold/40 flex items-center justify-center text-xs font-extrabold text-navy shrink-0">
+                    {getInitials(name)}
+                  </span>
+                  <span className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
+                    {name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* ── Conveners ── */}
+        {sanityConveners.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            className="mb-10"
+          >
+            <div className="flex items-center gap-3 mb-4 justify-center">
+              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-transparent to-teal/50" />
+              <span className="text-xs font-bold uppercase tracking-widest text-teal px-3 py-1 rounded-full bg-teal/10 border border-teal/30">
+                Conveners
+              </span>
+              <div className="h-px flex-1 max-w-[80px] bg-gradient-to-l from-transparent to-teal/50" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {sanityConveners.map((name, i) => (
+                <motion.div
+                  key={name + i}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.07 }}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-teal/30 shadow-sm hover:shadow-md hover:border-teal/60 transition-all duration-300 group"
+                >
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-teal/30 to-teal/10 border border-teal/40 flex items-center justify-center text-xs font-extrabold text-navy shrink-0">
+                    {getInitials(name)}
+                  </span>
+                  <span className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
+                    {name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* ── Member Cards divider ── */}
+        {allMembers.length > 0 && (sanityPatrons.length > 0 || sanityConveners.length > 0) && (
+          <div className="flex items-center gap-3 mb-8 justify-center">
+            <div className="h-px flex-1 bg-navy/10" />
+            <span className="text-xs font-bold uppercase tracking-widest text-navy/40 px-3">
+              Committee Members
+            </span>
+            <div className="h-px flex-1 bg-navy/10" />
+          </div>
+        )}
 
         {/* Domain Filter Pills */}
         <motion.div
