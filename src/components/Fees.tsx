@@ -63,6 +63,11 @@ export default function Fees({ data }: FeesProps) {
               <p className="text-xs sm:text-sm font-semibold text-navy/70 uppercase tracking-wide leading-snug">
                 {fee.label}
               </p>
+              {i < 3 && (
+                <p className="text-xs sm:text-sm pt-3 font-semibold text-navy/50 uppercase tracking-wide leading-snug">
+                  (Publication included)
+                </p>
+              )}
 
               {/* Decorative top bar */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-b-full bg-gold/0 group-hover:bg-gold transition-colors duration-300" />
