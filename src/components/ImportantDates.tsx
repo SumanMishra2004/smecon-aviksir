@@ -115,9 +115,15 @@ export default function ImportantDates({ data }: ImportantDatesProps) {
                   <p className="text-xs uppercase tracking-[0.15em] font-bold text-navy/40 mb-1">
                     {item.label}
                   </p>
-                  <p className="text-lg sm:text-xl font-extrabold text-gold">
+                    {
+                    i<3 && <p className="text-xs sm:text-sm  font-semibold text-navy/50 uppercase tracking-wide leading-snug">
+                    (Last date)
+                  </p>
+                  }
+                  <p className={`text-lg sm:text-xl font-extrabold text-gold ${i === 3 ? "mt-6" : ""}`}>
                     {item.date}
                   </p>
+                
                 </div>
               </motion.div>
             ))}
