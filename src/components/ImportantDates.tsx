@@ -19,6 +19,11 @@ const DEFAULT_DATES: DateItem[] = [
     date: "5th–6th Sept 2026",
     iconKey: "calendar",
   },
+    {
+    label: "Conference",
+    date: "5th–6th Sept 2026",
+    iconKey: "calendar",
+  }
 ];
 
 function RenderIcon({ iconKey }: { iconKey?: string }) {
@@ -54,7 +59,7 @@ export default function ImportantDates({ data }: ImportantDatesProps) {
 
   return (
     <section id="dates" className="py-20 sm:py-28 bg-bg-light overflow-hidden">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -88,7 +93,7 @@ export default function ImportantDates({ data }: ImportantDatesProps) {
             className="sm:hidden absolute top-0 bottom-0 left-6 w-0.5 bg-gradient-to-b from-gold/30 via-gold to-gold/30 origin-top"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6 relative">
             {datesList.map((item, i) => (
               <motion.div
                 key={item.label + i}
