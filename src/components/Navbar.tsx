@@ -79,6 +79,9 @@ export default function Navbar({ data, activeYear, availableYears }: NavbarProps
           <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0 ">
             <Image src={smcLogoSrc} alt="SMC" width={40} height={40} className="size-full" priority={true} unoptimized={typeof smcLogoSrc === 'string' && smcLogoSrc.startsWith('http')} />
           </div>
+           <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0 ">
+            <Image src={"/sustain.png"} alt="SMC" width={40} height={40} className="size-full" priority={true} unoptimized={typeof smcLogoSrc === 'string' && smcLogoSrc.startsWith('http')} />
+          </div>
           <div className="bg-white flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0">
             <Image src={smeconLogoSrc} alt="SMECON" width={140} height={140} className="rounded-full size-full" priority={true} unoptimized={typeof smeconLogoSrc === 'string' && smeconLogoSrc.startsWith('http')} />
           </div>
