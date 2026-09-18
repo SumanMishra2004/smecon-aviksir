@@ -350,6 +350,15 @@ export default function Hero({ data }: HeroProps) {
           >
             {secondaryBtnLabel}
           </a>
+          
+           <a
+            href={"/Day 1 2 schedule SMECON 2026.pdf"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full border border-white/30 transition-all duration-300 uppercase tracking-wider text-sm backdrop-blur-md shadow-lg"
+          >
+           Download Schedule
+          </a>
         </motion.div>
       </div>
 
