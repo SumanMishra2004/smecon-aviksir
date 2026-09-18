@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FeesData, FeeItem } from "@/lib/sanity";
 
 const DEFAULT_FEES: FeeItem[] = [
-  { amount: "₹8,000", label: "Students (UG/PG)", icon: "🎓" },
+  { amount: "₹6,500", label: "Students (UG/PG)", icon: "🎓" },
   { amount: "₹9,000", label: "Research Scholar", icon: "🔬" },
   { amount: "₹10,000", label: "Faculty / Academician / Speaker", icon: "👨‍🏫" },
   { amount: "₹1,000", label: "Only Poster", icon: "📋" },
