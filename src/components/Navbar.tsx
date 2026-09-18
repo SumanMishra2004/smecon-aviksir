@@ -8,6 +8,7 @@ import { SiteSettingsData, urlFor } from "@/lib/sanity";
 
 const DEFAULT_NAV_LINKS = [
   { label: "Tracks", href: "#tracks" },
+  { label: "Schedule", href: "/schedule" },
   { label: "Fees", href: "#fees" },
   { label: "Speakers", href: "#speakers" },
   { label: "Committee", href: "#committee" },
