@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteShell from "@/components/SiteShell";
 import { getSiteSettings } from "@/lib/sanity";
 
 const inter = Inter({
@@ -64,9 +63,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-[var(--color-surface)] text-[var(--color-on-surface)]">
-        <Navbar data={siteSettings} />
-        {children}
-        <Footer data={siteSettings} />
+        <SiteShell siteSettings={siteSettings}>
+          {children}
+        </SiteShell>
       </body>
     </html>
   );
