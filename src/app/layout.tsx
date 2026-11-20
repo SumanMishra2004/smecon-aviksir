@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SMECON 2026 — Smart Manufacturing, Sustainable Energy & Computational Intelligence",
     description:
-      "Two-day international Hybrid conference. 6 Scopus-indexed publication tracks. 19–20 September 2026.",
+      "Two-day international Hybrid conference. 6 Scopus-indexed publication tracks. 19&ndash;20 September 2026.",
     type: "website",
   },
   icons: {

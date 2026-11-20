@@ -1,4 +1,4 @@
-﻿"use client";
+﻿﻿﻿"use client";
 
 import { motion } from "framer-motion";
 import { CalendarDays, BookOpen, Layers, Wifi, BadgeCheck, FileDown } from "lucide-react";
@@ -53,7 +53,7 @@ export default function HomeHero({ data, cfpData }: HomeHeroProps) {
             <motion.div variants={fadeUp} custom={0}>
               <span className="inline-flex items-center gap-2 bg-[var(--color-surface-container)] border border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] text-xs font-medium px-4 py-2 rounded-full">
                 <span className="animate-pulse text-[#914630]">â—</span>
-                International Academic Conference Â· 2026
+                International Academic Conference · 2026
               </span>
             </motion.div>
 
@@ -89,7 +89,7 @@ export default function HomeHero({ data, cfpData }: HomeHeroProps) {
             {/* Metadata bento strip */}
             <motion.div variants={fadeUp} custom={4} className="grid grid-cols-3 gap-3">
               {[
-                { label: "Conference Date", value: "19â€“20 Sep 2026" },
+                { label: "Conference Date", value: "19\u201320 Sep 2026" },
                 { label: "Symposium", value: "Hybrid Mode" },
                 { label: "Tracks", value: "6 Scopus-Indexed" },
               ].map((item) => (
@@ -191,7 +191,7 @@ export default function HomeHero({ data, cfpData }: HomeHeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5">
                   <p className="text-xs font-semibold text-[#211a15]">Sovarani Memorial College</p>
-                  <p className="text-xs text-[#54433e]">SMC Â· West Bengal</p>
+                  <p className="text-xs text-[#54433e]">SMC · West Bengal</p>
                 </div>
               </div>
               {/* Spec rows */}

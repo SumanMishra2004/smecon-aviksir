@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -75,7 +75,7 @@ export default function Venue() {
                   Hybrid (Offline + Online)
                 </p>
                 <p className="text-white/55 text-xs sm:text-sm">
-                  19–20 September 2026
+                  19&ndash;20 September 2026
                 </p>
               </div>
             </div>
