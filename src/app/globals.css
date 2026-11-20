@@ -16,6 +16,31 @@
   --color-text-light: #FFFFFF;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Warm ivory/terracotta palette */
+  --color-surface: #fff8f5;
+  --color-surface-dim: #e5d8cf;
+  --color-surface-low: #fff1e8;
+  --color-surface-container: #f9ebe2;
+  --color-surface-high: #f3e6dd;
+  --color-surface-variant: #eee0d7;
+  --color-on-surface: #211a15;
+  --color-on-surface-variant: #54433e;
+  --color-outline: #87736d;
+  --color-outline-variant: #dac1bb;
+  --color-primary-warm: #914630;
+  --color-primary-warm-container: #b05e46;
+  --color-on-primary-warm: #ffffff;
+  --color-secondary-warm: #58624d;
+  --color-secondary-container: #d9e3c9;
+  --color-on-secondary-container: #5c6651;
+  --color-tertiary-warm: #904731;
+  --color-tertiary-container: #ae5f47;
+  --color-inverse-surface: #372f29;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 /* Smooth scroll for anchor links */

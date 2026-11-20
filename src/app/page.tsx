@@ -1,76 +1,61 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Tracks from "@/components/Tracks";
-import Fees from "@/components/Fees";
-import Speakers from "@/components/Speakers";
-import Committee from "@/components/Committee";
-import ImportantDates from "@/components/ImportantDates";
-import Gallery from "@/components/Gallery";
-import CallForPapers from "@/components/CallForPapers";
-import Venue from "@/components/Venue";
-import Partners from "@/components/Partners";
-import Footer from "@/components/Footer";
-
 import {
   getSiteSettings,
   getHeroData,
   getTracksData,
-  getFeesData,
   getSpeakersData,
   getCommitteeData,
   getImportantDatesData,
   getGalleryData,
   getCallForPapersData,
   getPartnersData,
-  getAvailableYears,
+  getFeesData,
 } from "@/lib/sanity";
+import HomeHero from "@/components/home/HomeHero";
+import HomeAbout from "@/components/home/HomeAbout";
+import HomeTracks from "@/components/home/HomeTracks";
+import HomeSpeakers from "@/components/home/HomeSpeakers";
+import HomeSchedule from "@/components/home/HomeSchedule";
+import HomeFees from "@/components/home/HomeFees";
+import HomeGallery from "@/components/home/HomeGallery";
+import HomePartners from "@/components/home/HomePartners";
 
-export const revalidate = 60; // Revalidate content every 60 seconds
+export const revalidate = 60;
 
 export default async function Home() {
-  const siteSettings = await getSiteSettings();
-  const activeYear = siteSettings?.currentYear || siteSettings?.brandYear || "2026";
-
   const [
+    siteSettings,
     heroData,
     tracksData,
-    feesData,
     speakersData,
     committeeData,
-    importantDatesData,
+    datesData,
     galleryData,
-    callForPapersData,
+    cfpData,
     partnersData,
-    availableYears,
+    feesData,
   ] = await Promise.all([
-    getHeroData(activeYear),
-    getTracksData(activeYear),
-    getFeesData(activeYear),
-    getSpeakersData(activeYear),
-    getCommitteeData(activeYear),
-    getImportantDatesData(activeYear),
-    getGalleryData(activeYear),
-    getCallForPapersData(activeYear),
-    getPartnersData(activeYear),
-    getAvailableYears(),
+    getSiteSettings(),
+    getHeroData("2026"),
+    getTracksData("2026"),
+    getSpeakersData("2026"),
+    getCommitteeData("2026"),
+    getImportantDatesData("2026"),
+    getGalleryData("2026"),
+    getCallForPapersData("2026"),
+    getPartnersData("2026"),
+    getFeesData("2026"),
   ]);
 
   return (
-    <>
-      <Navbar data={siteSettings} activeYear={activeYear} availableYears={availableYears} />
-      <main>
-        <Hero data={heroData} />
-        <Tracks data={tracksData} />
-        <Fees data={feesData} />
-        <Speakers data={speakersData} />
-        {committeeData?.isVisible !== false && <Committee data={committeeData} />}
-        <ImportantDates data={importantDatesData} />
-        <Gallery data={galleryData} />
-        <CallForPapers data={callForPapersData} />
-        <Venue />
-        <Partners data={partnersData} />
-      </main>
-      <Footer data={siteSettings} />
-    </>
+    <main>
+      <HomeHero data={heroData} />
+      <HomeAbout committeeData={committeeData} />
+      <HomeTracks data={tracksData} />
+      <HomeSpeakers data={speakersData} />
+      <HomeSchedule data={datesData} />
+      <HomeFees data={feesData} />
+      <HomeGallery data={galleryData} />
+      <HomePartners data={partnersData} />
+    </main>
   );
 }

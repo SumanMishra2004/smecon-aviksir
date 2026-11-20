@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { getSiteSettings } from "@/lib/sanity";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -43,14 +54,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteSettings = await getSiteSettings();
+
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="en" className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans bg-[var(--color-surface)] text-[var(--color-on-surface)]">
+        <Navbar data={siteSettings} />
+        {children}
+        <Footer data={siteSettings} />
+      </body>
     </html>
   );
 }
