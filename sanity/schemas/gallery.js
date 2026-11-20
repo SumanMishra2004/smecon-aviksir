@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity';
+import BulkImageUpload from '../components/BulkImageUpload';
 
 export default defineType({
   name: 'gallery',
@@ -19,6 +20,10 @@ export default defineType({
       name: 'imagesList',
       title: 'Gallery Images',
       type: 'array',
+      // BulkImageUpload renders a drag-and-drop zone above the normal array editor.
+      // Drop or pick multiple images at once — they upload and are appended automatically.
+      // Add captions per image using the list below after uploading.
+      components: { input: BulkImageUpload },
       of: [
         {
           type: 'object',
@@ -29,6 +34,12 @@ export default defineType({
             defineField({ name: 'url', title: 'External Image URL (fallback)', type: 'url' }),
             defineField({ name: 'caption', title: 'Caption', type: 'string' }),
           ],
+          preview: {
+            select: { title: 'caption', media: 'image' },
+            prepare({ title, media }) {
+              return { title: title || 'No caption', media };
+            },
+          },
         },
       ],
     }),
