@@ -17,6 +17,7 @@ import HomeSpeakers from "@/components/home/HomeSpeakers";
 import HomeSchedule from "@/components/home/HomeSchedule";
 import HomeFees from "@/components/home/HomeFees";
 import HomeGallery from "@/components/home/HomeGallery";
+import HomeTeam from "@/components/home/HomeTeam";
 import HomePartners from "@/components/home/HomePartners";
 
 export const revalidate = 60;
@@ -48,13 +49,14 @@ export default async function Home() {
 
   return (
     <main>
-      <HomeHero data={heroData} />
+      <HomeHero data={heroData} cfpData={cfpData} />
       <HomeAbout committeeData={committeeData} />
       <HomeTracks data={tracksData} />
       <HomeSpeakers data={speakersData} />
       <HomeSchedule data={datesData} />
       <HomeFees data={feesData} />
       <HomeGallery data={galleryData} />
+      <HomeTeam data={committeeData} />
       <HomePartners data={partnersData} />
     </main>
   );

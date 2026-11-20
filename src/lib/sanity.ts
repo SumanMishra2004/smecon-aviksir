@@ -151,6 +151,13 @@ export interface CallForPapersData {
   enquiryEmail?: string;
   subtext?: string;
   templateUrl?: string;
+  // PDF downloads
+  abstractBookVisibility?: 'show' | 'hide';
+  abstractBookFile?: { asset?: { _ref: string; url?: string } };
+  abstractBookLabel?: string;
+  flyerVisibility?: 'show' | 'hide';
+  flyerFile?: { asset?: { _ref: string; url?: string } };
+  flyerLabel?: string;
 }
 
 export interface PartnerItem {
@@ -221,7 +228,14 @@ export async function getGalleryData(year: string = "2026"): Promise<GalleryData
 }
 
 export async function getCallForPapersData(year: string = "2026"): Promise<CallForPapersData | null> {
-  return fetchSanity<CallForPapersData>(`*[_type == "callForPapers" && (year == $year || !defined(year))][0]`, { year });
+  return fetchSanity<CallForPapersData>(
+    `*[_type == "callForPapers" && (year == $year || !defined(year))][0]{
+      ...,
+      abstractBookFile { asset->{ _ref, url } },
+      flyerFile        { asset->{ _ref, url } }
+    }`,
+    { year }
+  );
 }
 
 export async function getPartnersData(year: string = "2026"): Promise<PartnersData | null> {

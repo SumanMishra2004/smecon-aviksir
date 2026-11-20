@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Building2, Menu, X } from "lucide-react";
 import { SiteSettingsData } from "@/lib/sanity";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -25,14 +26,10 @@ export default function Navbar({ data }: { data?: SiteSettingsData | null }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
         {/* LEFT: Logo + name */}
         <Link href="/" className="flex items-center">
-          <span className="rounded bg-[#914630] text-white p-2 flex items-center justify-center">
-            <Building2 size={22} />
+          <span className="rounded bg-[#fceded] text-white p-2 flex items-center justify-center">
+            <Image src={"/smeconlogo.png"} alt="" height={100} width={100} className="w-12 h-12"/ >
           </span>
-          <span className="font-serif font-semibold text-[#211a15] text-lg ml-2 tracking-tight">SMECON</span>
-          <span className="font-serif italic text-[#914630] text-lg">&nbsp;2026</span>
-          <span className="hidden lg:inline text-xs text-[#54433e] ml-3 pl-3 border-l border-[#E6D9C9]">
-            Smart Manufacturing · Sustainable Energy · Computational Intelligence
-          </span>
+          
         </Link>
 
         {/* CENTER: Nav links */}
